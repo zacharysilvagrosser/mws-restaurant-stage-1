@@ -25,7 +25,7 @@ a:hover, a:focus {
 	color: #3397db;
 	text-decoration: none;
 }
-a img{
+a img {
 	border: none 0px #fff;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -136,6 +136,9 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 #restaurants-list li {
   background-color: #fff;
@@ -145,7 +148,27 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 270px;
+  width: 19%;
+}
+@media only screen and (max-width: 1596px) {
+    #restaurants-list li {
+			width: 25%;
+    }
+}
+@media only screen and (max-width: 1156px) {
+    #restaurants-list li {
+			width: 38%;
+    }
+}
+@media only screen and (max-width: 814px) {
+    #restaurants-list li {
+			width: 95%;
+    }
+}
+@media only screen and (max-width: 445px) {
+	.filter-options select {
+			width: 115px;
+	}
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -272,4 +295,8 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+#neighborhoods-select child {
+
 }

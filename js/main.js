@@ -8,7 +8,7 @@ var markers = []
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-  initMap(); // added 
+  initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
 });
@@ -78,7 +78,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1IjoiemFjaGFyeXNpbHZhZ3Jvc3NlciIsImEiOiJjamxwaGFncG4wZmt5M3FudnFtZmgzMDg3In0.C-wjMDT32efnL0q2nwMAFA',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -162,6 +162,17 @@ createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
+  image.alt = restaurant.name + " restaurant image";
+  // var imgurlbase = DBHelper.imageUrlForRestaurant(restaurant);
+  // var length_image = imgurlbase.length;
+  // imgurlbase = imgurlbase.substring(0, length_image-4);
+  // const imgurl1x = imgurlbase + "_320.jpg";
+  // const imgurl2x = imgurlbase + "_503.jpg";
+  // const imgurl3x = imgurlbase + "_900.jpg";
+  // image.src = imgurl1x;
+  // image.srcset = `${imgurl1x} 320w, ${imgurl2x} 503w, ${imgurl3x} 900w`;
+  // image.sizes = `(max-width: 503px) 320px, (max-width: 900px) 503px, 900px`;
+  // li.append(image);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
@@ -197,7 +208,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 
-} 
+}
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
@@ -208,4 +219,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
