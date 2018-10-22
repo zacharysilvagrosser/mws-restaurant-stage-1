@@ -161,18 +161,22 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
   image.alt = restaurant.name + " restaurant image";
-  // var imgurlbase = DBHelper.imageUrlForRestaurant(restaurant);
-  // var length_image = imgurlbase.length;
-  // imgurlbase = imgurlbase.substring(0, length_image-4);
-  // const imgurl1x = imgurlbase + "_320.jpg";
-  // const imgurl2x = imgurlbase + "_503.jpg";
-  // const imgurl3x = imgurlbase + "_900.jpg";
-  // image.src = imgurl1x;
-  // image.srcset = `${imgurl1x} 320w, ${imgurl2x} 503w, ${imgurl3x} 900w`;
-  // image.sizes = `(max-width: 503px) 320px, (max-width: 900px) 503px, 900px`;
-  // li.append(image);
+  // turns the img src url into a string
+  let imgsrc = DBHelper.imageUrlForRestaurant(restaurant);
+  const imageLength = imgsrc.length;
+  let imgString = imgsrc.substring(0, imageLength-4);
+  // sets each img resolution/size to a webp format
+  const img1x = imgString + "_1x.webp";
+  const img2x = imgString + "_2x.webp";
+  const img3x = imgString + "_3x.webp";
+  // sets default img src to the smallest size/resolution
+  image.src = img1x;
+  // sets src for each of the three img choices
+  image.srcset = `${img1x} 276w, ${img2x} 459w, ${img3x} 800w`;
+  // sets breakpoints for the viewport width for each img
+  image.sizes = `(max-width: 500px) 150px, (max-width: 1000px) 250px, 800px`;
+  li.append(image);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
