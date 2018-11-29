@@ -77,6 +77,9 @@ initMap = () => {
         zoom: 12,
         scrollWheelZoom: false
       });
+    document.getElementById('map').tabIndex = -1;
+    // let leafletBar = document.getElementsByClassName.('leaflet-control');
+    // for (i = 0; leafletBar)
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoiemFjaGFyeXNpbHZhZ3Jvc3NlciIsImEiOiJjamxwaGFncG4wZmt5M3FudnFtZmgzMDg3In0.C-wjMDT32efnL0q2nwMAFA',
     maxZoom: 18,
@@ -107,6 +110,9 @@ initMap = () => {
 updateRestaurants = () => {
   const cSelect = document.getElementById('cuisines-select');
   const nSelect = document.getElementById('neighborhoods-select');
+
+  cSelect.tabIndex = 0;
+  nSelect.tabIndex = 0;
 
   const cIndex = cSelect.selectedIndex;
   const nIndex = nSelect.selectedIndex;
