@@ -48,7 +48,7 @@ self.addEventListener('install', function(event) {
           '/img/9_3x.webp',
           '/img/10_1x.webp',
           '/img/10_2x.webp',
-          '/img/10_3x.webp'
+          '/img/10_3x.webp',
          ]);
        })
      );
